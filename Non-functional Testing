@@ -1,0 +1,54 @@
+package Action_Class;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Test1 
+{
+
+	public static void main(String[] args) throws InterruptedException 
+	{	
+		System.setProperty("webdriver.chrome.driver", 
+				"D:\\Java\\chromedriver_win32\\chromedriver.exe");
+
+		WebDriver driver=new ChromeDriver();
+		
+		//To enter URL on the webpage/To open an application
+		driver.get("https://demo.automationtesting.in/Frames.html");
+		
+		//wait
+		Thread.sleep(2000);
+		
+		
+	//Step-I:Identify dropdownbox(find Address of dropdownbox)and store it into an Object
+		WebElement	dropdown=driver.findElement(By.xpath("//a[text()='SwitchTo']"));
+		
+		 //Step-II:Create object of Actions Class 
+		       Actions act=new Actions(driver);
+		
+		//To move curser
+		  act.moveToElement(dropdown).perform();
+		
+
+			//wait
+			Thread.sleep(2000);
+			
+		  
+		//to click window option
+		  driver.findElement(By.xpath("//a[text()='Windows']")).click();
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
